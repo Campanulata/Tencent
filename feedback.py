@@ -24,7 +24,7 @@ def feedback(time_live,time_playback,grade,name):
         str2 = '然后孩子的作业已经改完了，掌握的很不错，分数是' + str(grade) + '分，继续保持~'
     
     str0 = '家长您好，和您反馈一下' + str(name) + '的学习情况：'
-    str3 = '^_^'
+    str3 = '。'
 
     str_all =str0 + str1 + str2 + str3
 
@@ -40,5 +40,5 @@ print('打开该目录下的文件：output.xlsx；第73列是需要反馈的信
 # df[‘直播时长’].astype(‘int’)
 
 path = os.path.dirname(os.path.abspath(__file__))
-output_file = os.path.join(path, '打开此工作簿73列.xlsx')
+output_file = os.path.join(path, 'output.xlsx')
 df.to_excel(output_file,index=False)
