@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
-# import xlsxwriter
+import xlsxwriter
 
 def feedback(time_live,time_playback,grade,name):
     if time_live > 100 and time_playback>100:
@@ -25,7 +25,7 @@ def feedback(time_live,time_playback,grade,name):
         str2 = '然后孩子的作业已经改完了，掌握的很不错，分数是' + str(grade) + '分，继续保持~'
     
     str0 = '家长您好，和您反馈一下' + str(name) + '的学习情况：'
-    str3 = '。'
+    str3 = '。'
 
     str_all =str0 + str1 + str2 + str3
 
@@ -33,15 +33,19 @@ def feedback(time_live,time_playback,grade,name):
 
 file0 = input("1.请确保学生基本信息表与本程序在同一目录下2.输入工作簿的文件名（不用输入.xlsx）然后按Enter进入下一步")
 file_name = file0 + '.xlsx'
-times = input("请问反馈第几次的学习情况？输入阿拉伯数字后按Enter") 
+times = input("3.请问反馈第几次的学习情况？输入阿拉伯数字后按Enter") 
 
+# 读取
+# df6 = pd.read_excel(r'D:/source.xlsx', usecols='A:D,H')
 df = pd.read_excel(str(file_name))
 df['反馈'] = df.apply(lambda row:feedback(row['核心课程第' + str(times)+'节直播'],row['核心课程第' + str(times)+'节回放'],row['核心课程第' + str(times)+'节作业'],row['姓名']),axis=1)
-print('打开该目录下的文件：打开此工作簿73列.xlsx；第73列是需要反馈的信息')
+print('打开该目录下的文件：feedback.xlsx')
 # df[‘直播时长’].astype(‘int’)
+df2 = df[['姓名','反馈']]
 
+# 写入
 path = os.path.dirname(os.path.abspath(__file__))
-output_file = os.path.join(path, '打开此工作簿73列.xlsx')
-# df.to_excel(output_file,index=False,engine="xlsxwriter")
-df.to_excel(output_file,index=False)
+output_file = os.path.join(path, 'feedback.xlsx')
+df2.to_excel(output_file,index=False,engine="xlsxwriter")
+# df2.to_excel(output_file,index=False)
 
