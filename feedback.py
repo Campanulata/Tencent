@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
+import xlsxwriter
 
 def feedback(time_live,time_playback,grade,name):
     if time_live > 100 and time_playback>100:
@@ -36,9 +37,10 @@ times = input("请问反馈第几次的学习情况？输入阿拉伯数字后�
 
 df = pd.read_excel(str(file_name))
 df['反馈'] = df.apply(lambda row:feedback(row['核心课程第' + str(times)+'节直播'],row['核心课程第' + str(times)+'节回放'],row['核心课程第' + str(times)+'节作业'],row['姓名']),axis=1)
-print('打开该目录下的文件：output.xlsx；第73列是需要反馈的信息')
+print('打开该目录下的文件：打开此工作簿73列.xlsx；第73列是需要反馈的信息')
 # df[‘直播时长’].astype(‘int’)
 
 path = os.path.dirname(os.path.abspath(__file__))
-output_file = os.path.join(path, 'output.xlsx')
-df.to_excel(output_file,index=False)
+output_file = os.path.join(path, '打开此工作簿73列.xlsx')
+df.to_excel(output_file,index=False,engine="xlsxwriter")
+
