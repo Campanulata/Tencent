@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
-import xlsxwriter
+# import xlsxwriter
 
 def feedback(time_live,time_playback,grade,name):
     if time_live > 100 and time_playback>100:
@@ -42,5 +42,6 @@ print('打开该目录下的文件：打开此工作簿73列.xlsx；第73列是�
 
 path = os.path.dirname(os.path.abspath(__file__))
 output_file = os.path.join(path, '打开此工作簿73列.xlsx')
-df.to_excel(output_file,index=False,engine="xlsxwriter")
+# df.to_excel(output_file,index=False,engine="xlsxwriter")
+df.to_excel(output_file,index=False)
 
