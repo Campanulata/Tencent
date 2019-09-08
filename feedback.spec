@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['feedback.py'],
-             pathex=['C:\\Users\\omen\\OneDrive\\hello\\Tencent'],
+             pathex=['C:\\Users\\tylorgan\\OneDrive\\GitHub\\Tencent'],
              binaries=[],
              datas=[],
              hiddenimports=[],
