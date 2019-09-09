@@ -13,12 +13,4 @@ itchat.auto_login(hotReload=True)                       #登录
 friends_list = itchat.get_friends(update=True)          #更新好友
 
 df = pd.read_excel('feedback.xlsx')
-
-print(df_name)
-
-list_name = df_name.values.tolist()
-list_fb = df_fb.values.tolist()
-
 df.apply(lambda row:vx(row['姓名'],row['反馈']),axis=1)
-
-
