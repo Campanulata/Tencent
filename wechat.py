@@ -1,30 +1,27 @@
 import itchat 
 import random
 import pandas as pd
-itchat.auto_login(hotReload=True)
+import numpy as np
 
-friends_list = itchat.get_friends(update=True)
-df_name = pd.read_excel('feedback.xlsx',usecols='A')    #获取备注
-df_fb = pd.read_excel('feedback.xlsx',usecols='B')      #获取反馈
-df = pd.read_excel('feedback.xlsx')
-list_name = df_name.values.tolist()
-# list_name = str(list_name)                            #转str
-list_fb = df_fb.values.tolist()
-# list_name = df_name['姓名']
-# list_fb = df_fb['反馈']
-list_name1 = ['AAA','AAAA']
-
-for x,y in zip(list_name,list_fb):
-    # str_name = str(list_name[0])
-    user_name = itchat.search_friends(name=str(x))
-    print(user_name)           #vxid注入name
+def vx(name,fb):
+    user_name = itchat.search_friends(name)
+    print(user_name)
     uid = user_name[0]['UserName']
-    itchat.send(str(y),uid)
-    print(uid)
+    itchat.send(fb,uid)
 
+itchat.auto_login(hotReload=True)                       #登录
+friends_list = itchat.get_friends(update=True)          #更新好友
 
-print(list_name)
-print(list_name1)
-print(type(list_name))
-print(type(list_name1))
+df_name = pd.read_excel('feedback.xlsx',usecols='A')    #获取本地备注
+df_fb = pd.read_excel('feedback.xlsx',usecols='B')      #获取本地反馈
+df = pd.read_excel('feedback.xlsx')
+
+print(df_name)
+
+list_name = df_name.values.tolist()
+list_fb = df_fb.values.tolist()
+
+df.apply(lambda row:vx(row['姓名'],row['反馈']),axis=1)
+
+# list_name12 = ['AAA','AAAA']
 
