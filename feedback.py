@@ -36,9 +36,13 @@ file_name = file0 + '.xlsx'
 times = input("3.请问反馈第几次的学习情况？输入阿拉伯数字后按Enter") 
 print('打开该目录下的文件：feedback.xlsx')
 
-# 读取
-# df6 = pd.read_excel(r'D:/source.xlsx', usecols='A:D,H')
-df = pd.read_excel(str(file_name))
+# 读取 pd.read_excel(r'D:/source.xlsx', usecols='A:D,H')
+df = pd.read_excel(str(file_name))          # 读取数据源表
+# df_time = pd.read_excel('df_time.xlsx')     # 读取时间表
+# df_grade = pd.read_excel('df_grade.xlsx')   # 读取分数表
+# df = pd.merge(df,df_time.loc[:,['学号','核心课程第1节直播','核心课程第1节回放']],how='left',on = '学号') # vlookup 直播，回放时间
+
+
 df['反馈'] = df.apply(lambda row:feedback(row['核心课程第' + str(times)+'节直播'],row['核心课程第' + str(times)+'节回放'],row['核心课程第' + str(times)+'节作业'],row['姓名']),axis=1)
 
 # df[‘直播时长’].astype(‘int’)
