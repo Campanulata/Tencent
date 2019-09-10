@@ -1,9 +1,10 @@
-import pandas as pd
-import pandas_profiling
-import os
-
-data = pd.read_excel('test1.xlsx')
-# data.profile_report('Titanic Dataset')
-pandas_profiling.ProfileReport(data)
-profile = data.profile_report(title="学习情况数据分析")
-profile.to_file(output_file="学习情况数据分析.html")
+from bokeh.charts import Bar, output_file, show
+#在电脑屏幕上使用 output_notebook来可视化数据
+#准备数据 (模拟数据)
+data = {"y": [1, 2, 3, 4, 5]}
+#输出到Line.HTML
+output_file("lines.html", title="line plot example") 
+#创建一个新的含有标题和轴标签的窗口在线窗口
+p = Bar(data, title="Line Chart Example", xlabel='x', ylabel='values', width=400, height=400)
+#显示结果
+show(p)
