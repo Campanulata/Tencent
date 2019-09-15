@@ -5,26 +5,26 @@ import xlsxwriter
 
 def feedback(time_live,time_playback,grade,name):
     if time_live > 100 and time_playback>100:
-        str1 = '孩子今天表现很好，一共听了' + str(time_live) + '分钟的直播课程，而且下课之后又听了回放，继续保持。'
+        str1 = '一共听了' + str(time_live) + '分钟的直播课程，而且下课之后又听了回放，继续保持~'
     elif time_live>100 and time_playback==0:
-        str1 = '孩子今天表现很好，一共听了' + str(time_live) + '分钟的直播课程，继续保持~'
+        str1 = '一共听了' + str(time_live) + '分钟的直播课程，继续保持~'
     elif time_live>0 and time_playback>0:
-        str1 = '孩子今天早上可能来晚了，听课时长只有' + str(time_live) + '分钟，不过目前孩子已经听了回放，下次记得按时上课~~'
+        str1 = '早上可能来晚了，只听了' + str(time_live) + '分钟的直播课程，不过目前已经看了回放，下次记得按时上课~'
     elif time_live>0 and time_playback==0:
-        str1 = '孩子今天早上可能来晚了，听课时长只有' + str(time_live) + '分钟，麻烦家长督促孩子观看回放，不懂的可以问我~'
+        str1 = '早上可能来晚了，只听了' + str(time_live) + '分钟的直播课程，剩下的可以看一下回放~'
     elif time_live==0 and time_playback>0:
-        str1 = '孩子今天由于时间原因没有参加直播，不过目前已经看了回放，如果有不懂的可以问我~' 
+        str1 = '孩子由于时间原因没有参加直播，不过目前已经看了回放，如果有不懂的可以问我~' 
     else:
         str1 = '孩子由于时间原因没有参加今天的直播课，' 
 
     if grade>100:
-        str2 = '然后孩子的作业还没有提交，记得提醒完成，我会帮他批改的，填空题记得把过程也拍下来'
+        str2 = '然后作业还没有提交，尽量在今天完成'
     elif grade<60:
-        str2 = '然后孩子的作业已经改完了，但是没有及格，可以看一下解析问题出在哪里或者在群里问我。'
+        str2 = '然后作业已经改完了，但是没有及格，图像比较重要，如果有知识盲区一定要解决'
     else :
-        str2 = '然后孩子的作业已经改完了，掌握的很不错，分数是' + str(grade) + '分，继续保持~'
+        str2 = '然后作业已经改完了，掌握的很不错，得了' + str(grade) + '分，加油~'
     
-    str0 = '家长您好，和您反馈一下' + str(name) + '的学习情况：'
+    str0 = '下午好，和您反馈一下' + str(name) + '的物理学习情况：昨天学习的是比较重要的图像，'
     str3 = '^_^'
 
     str_all =str0 + str1 + str2 + str3
