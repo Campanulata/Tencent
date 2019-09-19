@@ -31,6 +31,13 @@ def feedback(time_live,time_playback,grade,name):
 
     return str_all
 
+df3 = pd.read_excel('work.xls',usecols=[5,6,7,8,9,10])
+df4 = pd.read_excel('work.xls')
+df3['总分'] = df3.apply(lambda x: x.sum(), axis=1)
+df5 = pd.concat([df4,df3['总分']],axis=1)
+print(df3)
+
+
 file0 = input("1.请确保学生基本信息表与本程序在同一目录下2.输入工作簿的文件名（不用输入.xlsx）然后按Enter进入下一步")
 file_name = file0 + '.xlsx'
 times = input("3.请问反馈第几次的学习情况？输入阿拉伯数字后按Enter") 
@@ -42,15 +49,17 @@ df = pd.read_excel(str(file_name))          # 读取数据源表
 # df_grade = pd.read_excel('df_grade.xlsx')   # 读取分数表
 # df = pd.merge(df,df_time.loc[:,['学号','核心课程第1节直播','核心课程第1节回放']],how='left',on = '学号') # vlookup 直播，回放时间
 
-
-df['反馈'] = df.apply(lambda row:feedback(row['核心课程第' + str(times)+'节直播'],row['核心课程第' + str(times)+'节回放'],row['核心课程第' + str(times)+'节作业'],row['姓名']),axis=1)
+dfi = pd.merge(df,df5.loc[:,['昵称','总分']],how='left',on='昵称')
+dfi['反馈'] = dfi.apply(lambda row:feedback(row['核心课程第' + str(times)+'节直播'],row['核心课程第' + str(times)+'节回放'],row['核心课程第' + str(times)+'节作业'],row['姓名']),axis=1)
 
 # df[‘直播时长’].astype(‘int’)
-df2 = df[['姓名','反馈']]
+df2 = dfi[['姓名','反馈']]
 
 # 写入
 path = os.path.dirname(os.path.abspath(__file__))
 output_file = os.path.join(path, 'feedback.xlsx')
 df2.to_excel(output_file,index=False,engine="xlsxwriter")
+work_sum = os.path.join(path, 'work_sum.xlsx')
+df5.to_excel(work_sum,index=False,)
 # df2.to_excel(output_file,index=False)
 
