@@ -55,6 +55,7 @@ dfi['反馈'] = dfi.apply(lambda row:feedback(row['核心课程第' + str(times)
 # df[‘直播时长’].astype(‘int’)
 df2 = dfi[['姓名','反馈']]
 
+
 # 写入
 path = os.path.dirname(os.path.abspath(__file__))
 output_file = os.path.join(path, 'feedback.xlsx')
