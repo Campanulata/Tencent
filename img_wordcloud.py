@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel('work.xls')
+df = pd.read_excel('/Users/tylor/OneDrive/TencentTencentTencent/ppt/数据分析动态图表.xlsx',sheet_name='wordcloud',skiprows = [1,2,3,4])
+
 print(df)
-new_worlds = " ".join(df['真实姓名'])
+new_worlds = " ".join(df['第1题'])
 # 参照图片
 coloring = np.array(Image.open("./img/lz1.jpg"))
 
