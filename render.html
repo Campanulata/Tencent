@@ -5,13 +5,50 @@
     <title>Awesome-pyecharts</title>
             <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
 
+    
 </head>
 <body>
-    <div id="4fabd1073c4d415ba90f6e231d0e781c" class="chart-container" style="width:900px; height:500px;"></div>
+        <style>
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 12px 16px;
+            transition: 0.3s;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .chart-container {
+            display: none;
+            padding: 6px 12px;
+            border-top: none;
+        }
+    </style>
+    <div class="tab">
+            <button class="tablinks" onclick="showChart(event, 'a9deb8cbf7924e358c6cd584325f7fba')">作业平均分对比</button>
+    </div>
+
+    <div class="box">
+                <div id="a9deb8cbf7924e358c6cd584325f7fba" class="chart-container" style="width:900px; height:500px;"></div>
     <script>
-        var chart_4fabd1073c4d415ba90f6e231d0e781c = echarts.init(
-            document.getElementById('4fabd1073c4d415ba90f6e231d0e781c'), 'white', {renderer: 'canvas'});
-        var option_4fabd1073c4d415ba90f6e231d0e781c = {
+        var chart_a9deb8cbf7924e358c6cd584325f7fba = echarts.init(
+            document.getElementById('a9deb8cbf7924e358c6cd584325f7fba'), 'white', {renderer: 'canvas'});
+        var option_a9deb8cbf7924e358c6cd584325f7fba = {
     "baseOption": {
         "series": [
             {
@@ -350,7 +387,34 @@
         }
     ]
 };
-        chart_4fabd1073c4d415ba90f6e231d0e781c.setOption(option_4fabd1073c4d415ba90f6e231d0e781c);
+        chart_a9deb8cbf7924e358c6cd584325f7fba.setOption(option_a9deb8cbf7924e358c6cd584325f7fba);
+    </script>
+    </div>
+
+    <script>
+    </script>
+    <script>
+        (function() {
+            containers = document.getElementsByClassName("chart-container");
+            if(containers.length > 0) {
+                containers[0].style.display = "block";
+            }
+        })()
+
+        function showChart(evt, chartID) {
+            let containers = document.getElementsByClassName("chart-container");
+            for (let i = 0; i < containers.length; i++) {
+                containers[i].style.display = "none";
+            }
+
+            let tablinks = document.getElementsByClassName("tablinks");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = "tablinks";
+            }
+
+            document.getElementById(chartID).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
     </script>
 </body>
 </html>

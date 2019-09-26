@@ -1,11 +1,12 @@
 from pyecharts.faker import Faker
 from pyecharts import options as opts
-from pyecharts.charts import Bar, Page, Pie, Timeline
+from pyecharts.charts import Bar, Page, Pie, Timeline,Tab
 import os
 import xlsxwriter
 import pandas as pd
 # 内置主题类型可查看 pyecharts.globals.ThemeType
 from pyecharts.globals import ThemeType
+from pyecharts.components import Table
 
 def timeline_bar() -> Timeline:
     tl = Timeline()
@@ -25,5 +26,6 @@ def timeline_bar() -> Timeline:
         #时间轴坐标
         tl.add(bar, "{}节".format(i))
     return tl
-
-timeline_bar().render()
+tab = Tab()
+tab.add(timeline_bar(), "作业平均分对比")
+tab.render()
