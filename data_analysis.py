@@ -17,8 +17,8 @@ def timeline_bar() -> Timeline:
         bar = (
             Bar(init_opts=opts.InitOpts(theme=ThemeType.LIGHT))
             .add_xaxis(["第1题", "第2题", "第3题", "第4题", "第5题"])
-            .add_yaxis("1班_赵", dfz1)
-            .add_yaxis("4班_李", dfl4)
+            .add_yaxis("1班_赵丽华老师", dfz1)
+            .add_yaxis("4班_李烨老师", dfl4)
             #左上角标题
             .set_global_opts(title_opts=opts.TitleOpts("第{}节作业".format(i)))
         )
