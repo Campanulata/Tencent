@@ -47,8 +47,8 @@ def salary(name,times):
         return
 
 
-df3 = pd.read_excel('work.xls',usecols=[5,6,7,8,9,10])
-df4 = pd.read_excel('work.xls')
+df3 = pd.read_excel('z_work.xls',usecols=[5,6,7,8,9,10])
+df4 = pd.read_excel('z_work.xls')
 df3['总分'] = df3.apply(lambda x: x.sum(), axis=1)
 df5 = pd.concat([df4,df3['总分']],axis=1)
 
