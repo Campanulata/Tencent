@@ -7,7 +7,6 @@ import pandas as pd
 # 内置主题类型可查看 pyecharts.globals.ThemeType
 from pyecharts.globals import ThemeType
 from pyecharts.components import Table
-
 def timeline_bar() -> Timeline:
     tl = Timeline()
     for i in range(1, 5):
@@ -27,39 +26,34 @@ def timeline_bar() -> Timeline:
         tl.add(bar, "{}节".format(i))
     return tl
 
+dfz = pd.read_excel('z.xlsx',usecols=[0,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65])
+dfz = dfz[dfz.班级==34753]
+dfl = pd.read_excel('l.xlsx',usecols=[0,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65])
+dfl = dfl[dfl.班级==24702]
 
-df = pd.read_excel('z.xlsx',usecols=[0,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65])
-df = df[df.班级==34753]
-df = df.replace(1000,0)
-df = df.replace(2000,0)
-df = pd.DataFrame(df.values.T, index=df.columns, columns=df.index)
-df = df.drop(['班级'])
-
-# 计算未提交人数
-df['已提交'] = df.apply(lambda x : x.value_counts().get(0,0),axis=1)
-
-def submission_rate(submitted):
-    return (1 - submitted/(df.columns.size-1))
-
-df['提交率'] = df.apply(lambda row:submission_rate(row['已提交']),axis=1)
-df['提交率'] = df['提交率'].apply(lambda x: format(x, '.2'))
-print(df['提交率'].dtypes)
-print(df.提交率)
+def submission_rate(df):
+    df = df.replace(1000,0)
+    df = df.replace(2000,0)
+    df = pd.DataFrame(df.values.T, index=df.columns, columns=df.index)
+    df = df.drop(['班级'])
+    # 计算未提交人数
+    df['未提交'] = df.apply(lambda x : x.value_counts().get(0,0),axis=1)
+    df['提交率'] = 1-df.未提交/(df.columns.size-1)
+    df['提交率'] = df['提交率'].apply(lambda x: format(x, '.2'))
+    return df['提交率']
 
 xaxis = ['1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1']
-
 for i in range(16):
     xaxis[i] = '第' + str(i+1) + '次'
 
-print(xaxis)
 def line_xaxis_type() -> Line:
     c = (
         Line()
         .add_xaxis(xaxis)
-        .add_yaxis('1班_赵丽华', df['提交率'])
-        .add_yaxis("4班_李烨", df['提交率'])
+        .add_yaxis('1班_赵丽华', submission_rate(dfz))
+        .add_yaxis('4班_李烨', submission_rate(dfl))
         .set_global_opts(
-            title_opts=opts.TitleOpts(title="正确率"),
+            title_opts=opts.TitleOpts(title="作业提交率"),
         )
     )
     return c
