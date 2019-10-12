@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel('z.xlsx')
+df = pd.read_excel('l.xlsx')
 
 df = df[['姓名','核心课程第4节作业']]
 df['核心课程第4节作业'].astype('int')
