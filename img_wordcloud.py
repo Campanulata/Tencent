@@ -4,15 +4,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel('l.xlsx')
+df = pd.read_excel('z.xlsx')
 
-df = df[['姓名','核心课程第4节作业']]
-df['核心课程第4节作业'].astype('int')
-df=df[df['核心课程第4节作业']<1000]
+df = df[['姓名','核心课程第5节作业']]
+df['核心课程第5节作业'].astype('int')
+df=df[df['核心课程第5节作业']<1000]
 print(df)
 new_worlds = " ".join(df['姓名'])
 # 参照图片
-coloring = np.array(Image.open("./img/lz3.jpg"))
+coloring = np.array(Image.open("./img/lz1.jpg"))
 
 # simkai.ttf 必填项 识别中文的字体，例：simkai.ttf，
 my_wordcloud = WordCloud(repeat=False,background_color="white", max_words=800,font_step=1, 
