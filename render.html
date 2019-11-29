@@ -40,27 +40,25 @@
         }
     </style>
     <div class="tab">
-            <button class="tablinks" onclick="showChart(event, '7a25872cc0264e1195c97617357989ed')">作业平均分对比</button>
-            <button class="tablinks" onclick="showChart(event, '150782135123473ebbefa6b2f6f36930')">作业提交率</button>
+            <button class="tablinks" onclick="showChart(event, '77c572124cb04ae09df241dbb8741196')">作业平均分对比</button>
+            <button class="tablinks" onclick="showChart(event, '27a0c559991b466694f43758a9d4fa99')">作业提交率</button>
     </div>
 
     <div class="box">
-                <div id="7a25872cc0264e1195c97617357989ed" class="chart-container" style="width:900px; height:500px;"></div>
+                <div id="77c572124cb04ae09df241dbb8741196" class="chart-container" style="width:900px; height:500px;"></div>
     <script>
-        var chart_7a25872cc0264e1195c97617357989ed = echarts.init(
-            document.getElementById('7a25872cc0264e1195c97617357989ed'), 'white', {renderer: 'canvas'});
-        var option_7a25872cc0264e1195c97617357989ed = {
+        var chart_77c572124cb04ae09df241dbb8741196 = echarts.init(
+            document.getElementById('77c572124cb04ae09df241dbb8741196'), 'white', {renderer: 'canvas'});
+        var option_77c572124cb04ae09df241dbb8741196 = {
     "baseOption": {
         "series": [
             {
                 "type": "bar",
                 "name": "1\u73ed_\u8d75\u4e3d\u534e\u8001\u5e08",
                 "data": [
-                    18,
-                    16,
-                    14,
-                    18,
-                    16
+                    5,
+                    19,
+                    28
                 ],
                 "barCategoryGap": "20%",
                 "label": {
@@ -73,11 +71,9 @@
                 "type": "bar",
                 "name": "4\u73ed_\u674e\u70e8\u8001\u5e08",
                 "data": [
-                    19,
+                    27,
                     13,
-                    10,
-                    15,
-                    16
+                    21
                 ],
                 "barCategoryGap": "20%",
                 "label": {
@@ -106,7 +102,8 @@
                 "7\u8282",
                 "8\u8282",
                 "9\u8282",
-                "10\u8282"
+                "10\u8282",
+                "11\u8282"
             ]
         },
         "xAxis": [
@@ -989,16 +986,97 @@
                 },
                 "borderWidth": 0
             }
+        },
+        {
+            "legend": [
+                {
+                    "data": [
+                        "1\u73ed_\u8d75\u4e3d\u534e\u8001\u5e08",
+                        "4\u73ed_\u674e\u70e8\u8001\u5e08"
+                    ],
+                    "selected": {
+                        "1\u73ed_\u8d75\u4e3d\u534e\u8001\u5e08": true,
+                        "4\u73ed_\u674e\u70e8\u8001\u5e08": true
+                    },
+                    "show": true,
+                    "padding": 5,
+                    "itemGap": 10,
+                    "itemWidth": 25,
+                    "itemHeight": 14
+                }
+            ],
+            "series": [
+                {
+                    "data": [
+                        5,
+                        19,
+                        28
+                    ]
+                },
+                {
+                    "data": [
+                        27,
+                        13,
+                        21
+                    ]
+                }
+            ],
+            "xAxis": [
+                {
+                    "show": true,
+                    "scale": false,
+                    "nameLocation": "end",
+                    "nameGap": 15,
+                    "gridIndex": 0,
+                    "inverse": false,
+                    "offset": 0,
+                    "splitNumber": 5,
+                    "minInterval": 0,
+                    "splitLine": {
+                        "show": false,
+                        "lineStyle": {
+                            "width": 1,
+                            "opacity": 1,
+                            "curveness": 0,
+                            "type": "solid"
+                        }
+                    },
+                    "data": [
+                        "\u7b2c1\u9898",
+                        "\u7b2c2\u9898",
+                        "\u7b2c3\u9898",
+                        "\u7b2c4\u9898",
+                        "\u7b2c5\u9898"
+                    ]
+                }
+            ],
+            "title": [
+                {
+                    "text": "\u7b2c11\u8282\u4f5c\u4e1a"
+                }
+            ],
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0
+            }
         }
     ]
 };
-        chart_7a25872cc0264e1195c97617357989ed.setOption(option_7a25872cc0264e1195c97617357989ed);
+        chart_77c572124cb04ae09df241dbb8741196.setOption(option_77c572124cb04ae09df241dbb8741196);
     </script>
-                <div id="150782135123473ebbefa6b2f6f36930" class="chart-container" style="width:900px; height:500px;"></div>
+                <div id="27a0c559991b466694f43758a9d4fa99" class="chart-container" style="width:900px; height:500px;"></div>
     <script>
-        var chart_150782135123473ebbefa6b2f6f36930 = echarts.init(
-            document.getElementById('150782135123473ebbefa6b2f6f36930'), 'white', {renderer: 'canvas'});
-        var option_150782135123473ebbefa6b2f6f36930 = {
+        var chart_27a0c559991b466694f43758a9d4fa99 = echarts.init(
+            document.getElementById('27a0c559991b466694f43758a9d4fa99'), 'white', {renderer: 'canvas'});
+        var option_27a0c559991b466694f43758a9d4fa99 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -1045,47 +1123,47 @@
             "data": [
                 [
                     "\u7b2c1\u6b21",
-                    "0.59"
+                    "0.58"
                 ],
                 [
                     "\u7b2c2\u6b21",
-                    "0.43"
+                    "0.42"
                 ],
                 [
                     "\u7b2c3\u6b21",
-                    "0.44"
+                    "0.43"
                 ],
                 [
                     "\u7b2c4\u6b21",
-                    "0.41"
+                    "0.42"
                 ],
                 [
                     "\u7b2c5\u6b21",
-                    "0.33"
+                    "0.32"
                 ],
                 [
                     "\u7b2c6\u6b21",
-                    "0.38"
+                    "0.4"
                 ],
                 [
                     "\u7b2c7\u6b21",
-                    "0.25"
+                    "0.27"
                 ],
                 [
                     "\u7b2c8\u6b21",
-                    "0.16"
-                ],
-                [
-                    "\u7b2c9\u6b21",
-                    "0.2"
-                ],
-                [
-                    "\u7b2c10\u6b21",
                     "0.15"
                 ],
                 [
+                    "\u7b2c9\u6b21",
+                    "0.18"
+                ],
+                [
+                    "\u7b2c10\u6b21",
+                    "0.2"
+                ],
+                [
                     "\u7b2c11\u6b21",
-                    "0.0"
+                    "0.1"
                 ],
                 [
                     "\u7b2c12\u6b21",
@@ -1135,47 +1213,47 @@
             "data": [
                 [
                     "\u7b2c1\u6b21",
-                    "0.37"
+                    "0.36"
                 ],
                 [
                     "\u7b2c2\u6b21",
-                    "0.33"
+                    "0.34"
                 ],
                 [
                     "\u7b2c3\u6b21",
-                    "0.22"
+                    "0.23"
                 ],
                 [
                     "\u7b2c4\u6b21",
-                    "0.2"
+                    "0.19"
                 ],
                 [
                     "\u7b2c5\u6b21",
-                    "0.24"
+                    "0.23"
                 ],
                 [
                     "\u7b2c6\u6b21",
-                    "0.28"
+                    "0.3"
                 ],
                 [
                     "\u7b2c7\u6b21",
-                    "0.15"
+                    "0.17"
                 ],
                 [
                     "\u7b2c8\u6b21",
-                    "0.11"
+                    "0.13"
                 ],
                 [
                     "\u7b2c9\u6b21",
-                    "0.043"
+                    "0.11"
                 ],
                 [
                     "\u7b2c10\u6b21",
-                    "0.043"
+                    "0.15"
                 ],
                 [
                     "\u7b2c11\u6b21",
-                    "0.0"
+                    "0.021"
                 ],
                 [
                     "\u7b2c12\u6b21",
@@ -1312,7 +1390,7 @@
         }
     ]
 };
-        chart_150782135123473ebbefa6b2f6f36930.setOption(option_150782135123473ebbefa6b2f6f36930);
+        chart_27a0c559991b466694f43758a9d4fa99.setOption(option_27a0c559991b466694f43758a9d4fa99);
     </script>
     </div>
 

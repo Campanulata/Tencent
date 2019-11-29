@@ -9,7 +9,7 @@ from pyecharts.globals import ThemeType
 from pyecharts.components import Table
 def timeline_bar() -> Timeline:
     tl = Timeline()
-    for i in range(1, 11):
+    for i in range(1, 12):
         df = pd.read_excel('./data/dfz1.xlsx',sheet_name='Sheet' + str(i))
         dfz1 = df['总平均分'].tolist()
         df = pd.read_excel('./data/dfl4.xlsx',sheet_name='Sheet' + str(i))
